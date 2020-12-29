@@ -1,0 +1,22 @@
+{
+  "name": "graphql-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "library-backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofiabogdanova/graphql-library.git"
+  },
+  "author": "Sofia Bogdanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sofiabogdanova/graphql-library/issues"
+  },
+  "homepage": "https://github.com/sofiabogdanova/graphql-library#readme",
+  "dependencies": {
+    "apollo-server": "^2.19.1"
+  }
+}
