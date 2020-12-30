@@ -114,6 +114,10 @@ const typeDefs = gql`
       published: Int!
       genres: [String!]!
     ): Book
+    editAuthor(
+      name: String!
+      setBornTo: Int!
+    ): Author
   }
 `
 
@@ -142,6 +146,7 @@ const resolvers = {
             }
             return authors.map(a => ({
                 name: a.name,
+                born: a.born,
                 bookCount: booksByAuthor(a.name)
             }))
         }
@@ -163,6 +168,15 @@ const resolvers = {
                 authors = authors.map(a => a.name === book.author ? {...a, bookCount: a.bookCount + 1} : a)
             }
             return book
+        },
+        editAuthor: (root, args) => {
+            const authorToEdit = authors.find(a => a.name===args.name)
+            if (!authorToEdit) {
+                return null
+            }
+            authorToEdit.born = args.setBornTo
+            authors = authors.map(a => a.name === args.author ? authorToEdit: a)
+            return authorToEdit
         }
     }
 }
