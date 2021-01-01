@@ -177,11 +177,20 @@ const resolvers = {
         }
 
     },
+    Book: {
+        author: async root => {
+            const author = await Author.findById(root.author)
+            return {
+                name: author.name,
+                born: author.born
+            }
+        }
+    },
     Query: {
         bookCount: () => Book.collection.countDocuments(),
         authorCount: () => Author.collection.countDocuments(),
-        allBooks: (root, args) => {
-            let books = Book.find({})
+        allBooks: async (root, args) => {
+            let books = await Book.find({})
             //const author = args.author
             const genre = args.genre
 
@@ -190,7 +199,7 @@ const resolvers = {
             // }
 
             if (genre) {
-                books = books.find({genres: {$in: [genre]}})
+                books = await books.find({genres: {$in: [genre]}})
             }
 
             return books
