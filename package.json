@@ -18,6 +18,10 @@
   "homepage": "https://github.com/sofiabogdanova/graphql-library#readme",
   "dependencies": {
     "apollo-server": "^2.19.1",
+    "apollo-server-errors": "^2.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.9",
+    "mongoose-unique-validator": "^2.0.3",
     "uuid": "^8.3.2"
   }
 }
