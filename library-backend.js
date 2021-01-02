@@ -199,7 +199,7 @@ const resolvers = {
             // }
 
             if (genre) {
-                books = await books.find({genres: {$in: [genre]}})
+                books = await Book.find({genres: {$in: [genre]}})
             }
 
             return books
